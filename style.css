@@ -190,7 +190,7 @@ a {
 }
 
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 450px) {
 
   .social_icons {
     position: relative;

@@ -52,6 +52,7 @@ a {
   -webkit-backdrop-filter: blur(5px);
 }
 
+
 .navbar a:not(:last-child) {
   margin-right: 10rem;
 }

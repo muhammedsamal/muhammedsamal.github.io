@@ -159,7 +159,7 @@ section {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  flex: 1 1 300px; /* Set a minimum width of 300px */
+  flex: 1 1 300px;
   justify-content: space-between;
   transition: all 0.3s ease;
   transform: translateY(50px);

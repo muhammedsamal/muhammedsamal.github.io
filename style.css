@@ -94,6 +94,54 @@ section {
 }
 
 
+.calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cal {
+  border: 2px solid #666;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fade-in-up 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.cal-box {
+  border: 1px solid #777;
+  padding: 0.7rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fade-in-up 1s ease-out forwards;
+  animation-delay: 0.6s; 
+}
+
+.cal-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.year {
+  font-size: 0.7rem;
+  color: #999;
+}
+
+.role {
+  font-size: 0.8rem;
+}
+
+
 #projects {
   display: flex;
   flex-direction: column;
@@ -157,6 +205,9 @@ a {
   }
   .greeting {
     display: inline;
+  }
+  .role, .year {
+    font-size: 1rem;
   }
 }
 

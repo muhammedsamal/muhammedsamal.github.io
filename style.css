@@ -4,8 +4,8 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: black;
   color: white;
-  margin: 2rem;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 2rem 1rem;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -90,7 +90,7 @@ section {
 
 .links {
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
 
@@ -232,6 +232,7 @@ a {
   body {
     margin: 2rem 8rem;
   }
+
   #projects {
     flex-wrap: nowrap;
   }

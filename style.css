@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: black;
+  font-family: 'Satoshi', sans-serif;
+  background-color: #161616;
   color: white;
-  margin: 2rem 1rem;
+  padding: 4rem 1rem;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 8rem;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 2rem;
 }
 
 h2, h3 {
@@ -19,35 +25,9 @@ h2, h3 {
   color: #999;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 40px;
-  opacity: 0;
-  transform: translateY(-50px);
-  animation: fade-in-up 1s ease-out forwards;
-}
-
 h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fade-in-up 1s ease-out forwards;
-  animation-delay: 0.4s;
-}
-
-h2::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0; /* Initially, the width is 0 */
-  height: 3px;
-  background-color: #222; /* Adjust as needed */
-  border-radius: 30px;
-  animation: expand-width 1s ease-out forwards;
-  animation-delay: 1s; /* Same delay as the h2 animation */
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
@@ -60,44 +40,64 @@ p {
   color: #c2c2c2;
 }
 
-section {
-  margin: 5rem 0;
+header, .subtitle, .links, .cal, .project {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(-50px);
   animation: fade-in-up 1s ease-out forwards;
-  animation-delay: 0.6s;
 }
 
-.greeting {
-  font-size: 24px;
-  font-weight: 200;
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slide-in-bottom 1s ease-out forwards;
-  animation-delay: 0.2s;
-  display: block;
+header, .subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
 
-.name {
-  font-family: 'Dancing Script', cursive;
-  color: #6366f1;
-  font-size: 48px;
-  opacity: 0;
-  transform: translateX(50px);
-  animation: slide-in-right 1s ease-out forwards;
-  animation-delay: 0.2s;
+.subtitle {
+  background-image: linear-gradient(to right, #161616 0%, rgba(107, 107, 107, 0.3) 50%, #161616 100%);
+  padding: 0.5rem 0rem;
+  animation-delay: 0.4s;
 }
 
 .links {
-  display: flex;
-  gap: 1.5rem;
+  padding-top: 2rem;
+  gap: 2rem;
+  animation-delay: 0.4s;
 }
 
+.links svg {
+  font-size: 0.5rem;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  width: 20px;
+  animation-delay: 0.4s;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #222;
+  border-radius: 30px;
+  animation: expand-width 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+section {
+  animation-delay: 0.6s;
+}
 
 .calendar {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .cal {
@@ -105,41 +105,20 @@ section {
   width: 100%;
   padding-top: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 1rem;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fade-in-up 1s ease-out forwards;
   animation-delay: 0.2s;
 }
 
-.cal::after {
+.cal::after, .cal::before {
   content: '';
   display: block;
   position: absolute;
-  bottom: 0;
-  left: 20%;
   width: 5px;
   height: 100%;
   transform: translate(20%, 0%);
   z-index: -1;
-  background-color: #222; 
-  animation: fade-in-up 1s ease-out forwards;
-  animation-delay: 1s;
-  opacity: 0;
-}
-
-.cal::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 20%;
-  width: 5px;
-  height: 100%;
-  transform: translate(20%, 0%);
-  z-index: -1;
-  background-color: #222; 
+  background-color: #666; 
   animation: fade-in-up 1s ease-out forwards;
   animation-delay: 1s;
   opacity: 0;
@@ -152,9 +131,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fade-in-up 1s ease-out forwards;
   animation-delay: 0.6s; 
   background-color: #000;
 }
@@ -162,65 +138,11 @@ section {
 .cal-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.year {
-  font-size: 0.7rem;
-  color: #999;
-}
-
-.role {
+.year, .role {
   font-size: 0.8rem;
-}
-
-
-#projects {
-  display: flex;
-  flex-direction: column;
-}
-
-#projects > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.project {
-  padding: 20px;
-  border: 2px solid #666;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 300px;
-  justify-content: space-between;
-  transition: all 0.3s ease;
-  transform: translateY(50px);
-}
-
-.project.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.project-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  gap: 15px
-}
-
-.tech-stack img {
-  height: 32px;
-  background-color: #333;
-  border-radius: 50%;
-  padding: 5px;
 }
 
 a {
@@ -230,45 +152,42 @@ a {
 
 @media (min-width: 768px) {
   body {
-    margin: 2rem 8rem;
+    padding: 4rem 8rem;
   }
-
-  #projects {
-    flex-wrap: nowrap;
-  }
-  .greeting {
-    display: inline;
-  }
+  
   .role, .year {
     font-size: 1rem;
   }
 }
 
-
-/* Media query for large screens */
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   body {
-    font-size: 18px; /* Increase base font size */
+    padding: 4rem 12rem;
+    font-size: 18px;
   }
 
   h1 {
-    font-size: 48px; /* Increase h1 font size */
+    font-size: 48px;
   }
 
   h2 {
-    font-size: 36px; /* Increase h2 font size */
+    font-size: 36px;
   }
 
   h3 {
-    font-size: 24px; /* Increase h3 font size */
+    font-size: 24px;
   }
+}
 
-  .greeting {
-    font-size: 36px; /* Increase .greeting font size */
+@media (min-width: 1400px) {
+  body {
+    padding: 4rem 24rem;
   }
+}
 
-  .name {
-    font-size: 72px; /* Increase .name font size */
+@media(min-width: 1600px) {
+  body {
+    padding: 4rem 32rem;
   }
 }
 
@@ -283,18 +202,7 @@ a {
   }
 }
 
-@keyframes slide-in-left {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
+@keyframes slide-in-bottom {
   0% {
     opacity: 0;
     transform: translateX(50px);
@@ -305,22 +213,11 @@ a {
   }
 }
 
-@keyframes slide-in-bottom {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes expand-width {
   from {
     width: 0;
   }
   to {
-    width: 10%; /* Width expands to match the width of the text */
+    width: 10%;
   }
 }
